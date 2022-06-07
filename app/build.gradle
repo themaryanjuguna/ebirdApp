@@ -15,6 +15,10 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildTypes.each {
+        it.buildConfigField 'String', 'THECATAPI_KEY', THECATAPI_KEY
+    }
+
     buildTypes {
         release {
             minifyEnabled false
