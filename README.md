@@ -14,7 +14,10 @@
 * access to a browser
 * fork from https://github.com/themaryanjuguna/theCatAPI.git
 * Open with Android Studio (install `sudo snap install android-studio --classic`)
+* Generate your API Token here https://docs.thecatapi.com/authentication
 
+## API Credit
+* https://docs.thecatapi.com/api-reference/breeds/breeds-list
 ## Known Bugs
 Report any bugs by hovering to https://github.com/themaryanjuguna/thecatapi/issues and create a new issue.
 
