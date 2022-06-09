@@ -23,5 +23,5 @@ Report any bugs by hovering to https://github.com/themaryanjuguna/thecatapi/issu
 Maryanne Njũgũna [Linktree Profile](https://linktr.ee/themaryanjuguna)
 
 ### License
-Licensed by MIT [View Here](#)
+Licensed by MIT [View Here](https://github.com/themaryanjuguna/theCatApi/blob/master/Licence)
 Copyright (c) 2022 **themaryanjuguna**
