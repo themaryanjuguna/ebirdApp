@@ -42,7 +42,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp">
 
             <ImageView
                 android:id="@+id/imageView"
@@ -65,8 +66,9 @@
                 android:layout_height="wrap_content"
                 android:padding="5dp"
                 android:text="@string/name"
-                android:textStyle="bold"
+                android:textSize="16dp"
 
+                android:textStyle="bold"
                 tools:layout_editor_absoluteX="175dp"
                 tools:layout_editor_absoluteY="24dp" />
 
@@ -78,7 +80,6 @@
                 android:text="@string/life_span"
                 android:textColor="#795548"
                 app:flow_horizontalAlign="end"
-
                 tools:layout_editor_absoluteX="16dp" />
 
             <TextView
@@ -87,7 +88,6 @@
                 android:layout_height="wrap_content"
                 android:padding="5dp"
                 android:text="@string/description"
-                android:textStyle="bold"
                 tools:layout_editor_absoluteX="151dp" />
 
             <TextView
@@ -99,7 +99,7 @@
                 tools:layout_editor_absoluteX="29dp" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="330dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
                 android:orientation="horizontal"
@@ -108,21 +108,8 @@
 
 
                 <Button
-                    android:id="@+id/infoBtn"
-                    android:layout_width="70dp"
-                    android:layout_height="36dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:text="info"
-                    android:textSize="10sp"
-                    app:backgroundTint="#E91E63"
-                    app:maxImageSize="16dp"
-                    app:srcCompat="@drawable/ic_info" />
-
-                <Button
                     android:id="@+id/downloadBtn"
-                    android:layout_width="wrap_content"
+                    android:layout_width="20dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="8dp"
                     android:layout_weight="1"
@@ -133,8 +120,8 @@
 
                 <Button
                     android:id="@+id/refreshBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="36dp"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginRight="8dp"
                     android:layout_weight="1"
                     android:clickable="true"
@@ -146,7 +133,7 @@
 
                 <Button
                     android:id="@+id/moreFacts"
-                    android:layout_width="wrap_content"
+                    android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="more facts"
