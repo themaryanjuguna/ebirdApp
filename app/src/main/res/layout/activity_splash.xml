@@ -4,20 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#f7cfcf"
+    android:background="#FFDADA"
     tools:context=".ui.SplashActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="304dp"
+        android:layout_height="260dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="187dp"
+        android:padding="10dp"
+        android:src="@drawable/kitty" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="40dp"
-        android:textAlignment="center"
-        android:src="@drawable/kitty"
+        android:layout_below="@id/imageView"
+        android:layout_marginTop="-7dp"
+        android:padding="10dp"
         android:text="@string/AppName"
-        android:textSize="48dp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
         android:textAllCaps="true"
+        android:textSize="48dp"
         android:textStyle="bold" />
 
 </RelativeLayout>

@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    tools:context=".ui.CatInfoActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -22,7 +23,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="203dp"
             android:padding="5dp">
 
             <ImageView
@@ -88,52 +89,61 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="12dp"
+                android:orientation="horizontal"
                 app:flow_horizontalAlign="start"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                                tools:ignore="MissingConstraints">
+                tools:ignore="MissingConstraints">
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/likeBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="#FFFFFF"
-                    android:clickable="true"
-                    app:maxImageSize="16dp"
-                    app:srcCompat="@drawable/ic_like" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                <Button
                     android:id="@+id/infoBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="70dp"
+                    android:layout_height="36dp"
+                    android:layout_marginRight="8dp"
                     android:layout_weight="1"
-                    android:backgroundTint="#FFFFFF"
                     android:clickable="true"
-                    app:maxImageSize="30dp"
+                    android:text="info"
+                    android:textSize="10sp"
+                    app:backgroundTint="#E91E63"
+                    app:maxImageSize="16dp"
                     app:srcCompat="@drawable/ic_info" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                <Button
                     android:id="@+id/downloadBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="36sp"
+                    android:layout_marginRight="8dp"
                     android:layout_weight="1"
-                    android:backgroundTint="#FFFFFF"
                     android:clickable="true"
-                    app:maxImageSize="30dp"
+                    app:backgroundTint="#F44336"
+                    android:text="Download"
+                    android:textSize="10sp"
+                    app:maxImageSize="16dp"
                     app:srcCompat="@drawable/ic_download" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                <Button
                     android:id="@+id/refreshBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_marginRight="8dp"
                     android:layout_weight="1"
-                    android:backgroundTint="#FFFFFF"
                     android:clickable="true"
+                    android:text="refresh"
+                    android:textSize="10sp"
+                    app:backgroundTint="#009688"
                     app:maxImageSize="30dp"
                     app:srcCompat="@drawable/ic_refresh" />
+
+                <Button
+                    android:id="@+id/moreFacts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:text="more facts"
+                    android:textSize="10sp" />
             </LinearLayout>
 
 

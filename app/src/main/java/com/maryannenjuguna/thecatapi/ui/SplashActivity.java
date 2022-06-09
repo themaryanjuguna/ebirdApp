@@ -21,11 +21,11 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 //calling main activity to load after loading screen
-                startActivity(new Intent(SplashActivity.this,BreedsActivity.class));
+                startActivity(new Intent(SplashActivity.this, BreedsActivity.class));
                 finish(); //finish loading screen activity
             }
             //call mainActivity after 1 seconds
-        }, 1000);
+        }, 1500);
 
     }
     }
