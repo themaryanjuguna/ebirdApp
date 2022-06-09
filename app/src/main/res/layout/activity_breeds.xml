@@ -123,15 +123,13 @@
                 <Button
                     android:id="@+id/downloadBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="36sp"
+                    android:layout_height="wrap_content"
                     android:layout_marginRight="8dp"
                     android:layout_weight="1"
                     android:clickable="true"
                     android:text="Download"
                     android:textSize="10sp"
-                    app:backgroundTint="#F44336"
-                    app:maxImageSize="16dp"
-                    app:srcCompat="@drawable/ic_download" />
+                    app:backgroundTint="#F44336" />
 
                 <Button
                     android:id="@+id/refreshBtn"
@@ -149,7 +147,7 @@
                 <Button
                     android:id="@+id/moreFacts"
                     android:layout_width="wrap_content"
-                    android:layout_height="36dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="more facts"
                     android:textSize="10sp" />
