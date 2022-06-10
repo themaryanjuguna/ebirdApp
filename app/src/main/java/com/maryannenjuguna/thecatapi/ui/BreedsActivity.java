@@ -28,10 +28,10 @@ import retrofit2.Response;
 public class BreedsActivity extends AppCompatActivity {
     private static final String TAG = BreedsActivity.class.getSimpleName();
 
-    @BindView(R.id.errorTextView) TextView mErrorTextView;
-    @BindView(R.id.breedsTextView) TextView mBreedTextView;
-    //@BindView(R.id.progressBar) ProgressBar mProgressBar;
-   /* @BindView(R.id.listView) ListView mListView;*/
+    @BindView(R.id.errorTextView)
+    TextView mErrorTextView;
+    @BindView(R.id.breedsTextView)
+    TextView mBreedTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,14 +53,14 @@ public class BreedsActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<TheCatBreedSearchResponse>> call, Response<List<TheCatBreedSearchResponse>> response) {
 
-                if(!response.isSuccessful()){
+                if (!response.isSuccessful()) {
                     mErrorTextView.setText("Code: " + response.code());
                     return;
                 }
 
                 List<TheCatBreedSearchResponse> theCatBreedSearchResponses = response.body();
 
-                for(TheCatBreedSearchResponse theCatBreedSearchResponse : theCatBreedSearchResponses){
+                for (TheCatBreedSearchResponse theCatBreedSearchResponse : theCatBreedSearchResponses) {
                     String content = "";
                     content += theCatBreedSearchResponse.getClass().getResource("url") + "\n";
                     content += "Name: " + theCatBreedSearchResponse.getName() + "\n";
@@ -90,13 +90,5 @@ public class BreedsActivity extends AppCompatActivity {
         mErrorTextView.setText("Something went wrong. Please try again later");
         mErrorTextView.setVisibility(View.VISIBLE);
     }
-
-/*    private void showRestaurants() {
-        mListView.setVisibility(View.VISIBLE);
-        mBreedTextView.setVisibility(View.VISIBLE);
-    }
-
-    private void hideProgressBar() {
-        mProgressBar.setVisibility(View.GONE);
-    }*/
 }
+

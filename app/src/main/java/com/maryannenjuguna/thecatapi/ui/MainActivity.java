@@ -32,10 +32,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        infoBtn = findViewById(R.id.infoBtn);
-        downloadBtn = findViewById(R.id.downloadBtn);
-        likeBtn = findViewById(R.id.refreshBtn);
-        refreshBtn = findViewById(R.id.likeBtn);
 
         //refreshButton
         likeBtn.setOnClickListener(new View.OnClickListener() {
@@ -92,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         //recyclerView = findViewById(R.id.recycleview);
-        next = findViewById(R.id.next);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
