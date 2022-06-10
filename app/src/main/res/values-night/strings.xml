@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Felidae</string>
+    <string name="app_name">theCatApi</string>
+    <string name="api_url">https://api.thecatapi.com/v1/images/search</string>
     <string name="description">description</string>
     <string name="name">name</string>
     <string name="temperament">temperament</string>
-    <string name="life_span">life_span</string>
     <string name="Breeds">Breeds</string>
     <string name="AppName">Felidz</string>
 </resources>
