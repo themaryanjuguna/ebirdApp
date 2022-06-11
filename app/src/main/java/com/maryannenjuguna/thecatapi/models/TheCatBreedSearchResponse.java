@@ -507,12 +507,13 @@ public class TheCatBreedSearchResponse {
         this.referenceImageId = referenceImageId;
     }
 
-    public Image getImage() {
-        return image;
-    }
+ 
 
     public void setImage(Image image) {
         this.image = image;
     }
 
-}
+    public Image getImage() {
+
+
+        return image;}    }

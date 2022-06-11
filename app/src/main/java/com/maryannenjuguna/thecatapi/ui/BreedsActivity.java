@@ -2,20 +2,17 @@ package com.maryannenjuguna.thecatapi.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.ProgressBar;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.maryannenjuguna.thecatapi.R;
-import com.maryannenjuguna.thecatapi.TheCatApiBreedsArrayAdapter;
-import com.maryannenjuguna.thecatapi.models.Image;
 import com.maryannenjuguna.thecatapi.models.TheCatBreedSearchResponse;
 import com.maryannenjuguna.thecatapi.network.theCatApi;
 import com.maryannenjuguna.thecatapi.network.theCatApiClient;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -27,6 +24,8 @@ import retrofit2.Response;
 
 public class BreedsActivity extends AppCompatActivity {
     private static final String TAG = BreedsActivity.class.getSimpleName();
+    private ImageView url;
+
 
     @BindView(R.id.errorTextView)
     TextView mErrorTextView;
@@ -62,7 +61,7 @@ public class BreedsActivity extends AppCompatActivity {
 
                 for (TheCatBreedSearchResponse theCatBreedSearchResponse : theCatBreedSearchResponses) {
                     String content = "";
-                    content += theCatBreedSearchResponse.getClass().getResource("url") + "\n";
+                   // Picasso.get().load((Uri)theCatBreedSearchResponse.getImage(url));
                     content += "Name: " + theCatBreedSearchResponse.getName() + "\n";
                     content += "Life Span: " + theCatBreedSearchResponse.getLifeSpan() + "\n";
                     content += "Temperament: " + theCatBreedSearchResponse.getTemperament() + "\n";

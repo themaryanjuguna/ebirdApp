@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "450110270304",
+    "project_id": "thecatapi-70850",
+    "storage_bucket": "thecatapi-70850.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:450110270304:android:466d728d46668990540c05",
+        "android_client_info": {
+          "package_name": "com.maryannenjuguna.thecatapi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "450110270304-bfigkcv2quvpkfhk5n0agfahrf0j90ls.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIuqs3tlzD971DXXvNO7184jZgvsAP84g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "450110270304-bfigkcv2quvpkfhk5n0agfahrf0j90ls.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

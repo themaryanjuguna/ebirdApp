@@ -16,6 +16,12 @@
         android:theme="@style/Theme.TheCatApi"
         tools:targetApi="31">
         <activity
+            android:name=".firetest.RVActivity"
+            android:exported="false" />
+        <activity
+            android:name=".firetest.firetestActivity"
+            android:exported="false" />
+        <activity
             android:name="com.maryannenjuguna.thecatapi.ui.SplashActivity"
             android:exported="true">
             <intent-filter>
@@ -28,12 +34,12 @@
             android:name=".ui.BreedsActivity"
             android:exported="false"
             android:label="@string/AppName"
-            android:parentActivityName=".ui.MainActivity"/>
+            android:parentActivityName=".ui.MainActivity" />
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.TheCatApi2"
-            android:parentActivityName=".ui.BreedsActivity">
+            android:parentActivityName=".ui.BreedsActivity"
+            android:theme="@style/Theme.TheCatApi2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
