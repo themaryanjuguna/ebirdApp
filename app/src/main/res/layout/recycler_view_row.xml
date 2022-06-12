@@ -38,7 +38,7 @@
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
-                android:id="@+id/name"
+                android:id="@+id/username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -59,7 +59,7 @@
                 android:text="@string/description"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@id/imageView"
-                app:layout_constraintTop_toBottomOf="@id/name" />
+                app:layout_constraintTop_toBottomOf="@id/username" />
 
             <TextView
                 android:id="@+id/temperament"
@@ -70,7 +70,7 @@
                 android:padding="5dp"
                 android:text="@string/temperament"
                 app:layout_constraintStart_toEndOf="@id/imageView"
-                app:layout_constraintTop_toBottomOf="@id/name" />
+                app:layout_constraintTop_toBottomOf="@id/username" />
 
             <TextView
                 android:id="@+id/life_span"
@@ -82,7 +82,7 @@
                 android:text="@string/life_span"
                 android:textColor="#795548"
                 app:layout_constraintStart_toEndOf="@id/imageView"
-                app:layout_constraintTop_toBottomOf="@id/name" />
+                app:layout_constraintTop_toBottomOf="@id/username" />
 
             <LinearLayout
                 android:layout_width="wrap_content"

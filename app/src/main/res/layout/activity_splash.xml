@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#f7cfcf"
+    android:background="#FFDADA"
+    android:orientation="vertical"
     tools:context=".ui.SplashActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="40dp"
+        android:layout_marginBottom="36dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/kitty" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="40dp"
-        android:textAlignment="center"
-        android:src="@drawable/kitty"
-        android:text="@string/AppName"
-        android:textSize="48dp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:textAllCaps="true"
-        android:textStyle="bold" />
+        android:text="FELIDZ"
+        android:id="@+id/username"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:textAlignment="center"/>
 
-</RelativeLayout>
+</LinearLayout>
