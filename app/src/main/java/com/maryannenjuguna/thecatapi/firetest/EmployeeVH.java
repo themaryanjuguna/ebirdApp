@@ -10,12 +10,13 @@ import com.maryannenjuguna.thecatapi.R;
 
 public class EmployeeVH extends RecyclerView.ViewHolder {
 
-    public TextView txtName, txtPosition;
+    public TextView txtName, txtPosition, txtOption;
     public EmployeeVH(@NonNull View itemView) {
 
         super(itemView);
         txtName = itemView.findViewById(R.id.txtName);
         txtPosition = itemView.findViewById(R.id.txtPosition);
+        txtOption = itemView.findViewById(R.id.txtOption);
 
 
     }

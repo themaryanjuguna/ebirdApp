@@ -12,7 +12,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.maryannenjuguna.thecatapi.R;
-import com.maryannenjuguna.thecatapi.adapters.RVAdapter;
 
 import java.util.ArrayList;
 
@@ -20,17 +19,27 @@ public class RVActivity extends AppCompatActivity {
 
     SwipeRefreshLayout swipeRefreshLayout;
     RecyclerView recyclerView;
-    RVAdapter adapter;
     DAOEmployee dao;
-    String key = null;
-    boolean isLoading = false;
+   RVAdapter adapter;
+   String key = null;
+   boolean isLoading = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rvactivity);
 
-        swipeRefreshLayout = findViewById(R.id.swipe);
+      /*  swipeRefreshLayout = findViewById(R.id.swipe);
+        recyclerView = findViewById(R.id.viewRecycler);
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(manager);
+        dao = new DAOEmployee();
+
+        FirebaseRecyclerOptions<Employee> option = new FirebaseRecyclerOptions.Builder<Employee>()
+                .setQuery(dao.get(), new SnapshotParser<Employee>());
+*/
+       swipeRefreshLayout = findViewById(R.id.swipe);
         recyclerView = findViewById(R.id.viewRecycler);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager manager = new LinearLayoutManager(this);
@@ -38,7 +47,8 @@ public class RVActivity extends AppCompatActivity {
         adapter = new RVAdapter(this);
         recyclerView.setAdapter(adapter);
         dao = new DAOEmployee();
-        loadData();
+
+       loadData();
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
@@ -65,6 +75,7 @@ public class RVActivity extends AppCompatActivity {
                 ArrayList<Employee> emps = new ArrayList<>();
                 for(DataSnapshot data : snapshot.getChildren()) {
                     Employee emp = data.getValue(Employee.class);
+                    emp.setKey(data.getKey());
                     emps.add(emp);
                     key = data.getKey();
                 }
@@ -82,4 +93,4 @@ public class RVActivity extends AppCompatActivity {
             }
         });
     }
-}
+    }

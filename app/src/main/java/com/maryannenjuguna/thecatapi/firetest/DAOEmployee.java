@@ -44,4 +44,7 @@ public class DAOEmployee {
         return databaseReference.orderByKey().startAfter(key).limitToFirst(8);
     }
 
+    public Query get(){
+        return databaseReference;
+    }
 }

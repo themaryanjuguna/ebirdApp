@@ -1,9 +1,12 @@
-package com.maryannenjuguna.thecatapi.adapters;
+package com.maryannenjuguna.thecatapi.firetest;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -44,6 +47,41 @@ public class RVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         Employee emp = list.get(position);
         vh.txtName.setText(emp.getName());
         vh.txtPosition.setText(emp.getPosition());
+        vh.txtOption.setOnClickListener(v -> {
+
+            PopupMenu popupMenu = new PopupMenu(context,vh.txtOption);
+            popupMenu.inflate(R.menu.option_menu);
+            popupMenu.setOnMenuItemClickListener(item -> {
+
+                switch (item.getItemId()) {
+
+
+                    case R.id.menuEdit:
+                        Intent intent = new Intent(context, firetestActivity.class);
+                        intent.putExtra("EDIT", emp);
+                        context.startActivity(intent);
+
+                        break;
+
+                    case R.id.menuRemove:
+                        DAOEmployee dao = new DAOEmployee();
+                        dao.delete(emp.getKey()).addOnSuccessListener(suc->{
+
+                        Toast.makeText(context, "Record is removed", Toast.LENGTH_SHORT).show();
+                        notifyItemRemoved(position);
+
+                    }).addOnFailureListener(er ->
+
+                    {
+                        Toast.makeText(context,""+er.getMessage(), Toast.LENGTH_SHORT).show();
+                    });
+
+                        break;
+                }
+                return false;
+            });
+            popupMenu.show();
+        });
 
 
     }

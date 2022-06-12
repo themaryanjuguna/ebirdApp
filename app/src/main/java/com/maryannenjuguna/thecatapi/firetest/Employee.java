@@ -1,7 +1,13 @@
 package com.maryannenjuguna.thecatapi.firetest;
 
-public class Employee {
+import com.google.firebase.database.Exclude;
 
+import java.io.Serializable;
+
+public class Employee implements Serializable {
+
+    @Exclude
+    private String key;
     private String name;
     private String position;
     public Employee(){} // public instructor to allow Firebase's back n forth commm
@@ -25,5 +31,12 @@ public class Employee {
 
     public void setPosition(String position) {
         this.position = position;
+    }
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 }
