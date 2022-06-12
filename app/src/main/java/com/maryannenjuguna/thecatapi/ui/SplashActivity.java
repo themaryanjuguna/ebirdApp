@@ -26,7 +26,7 @@ public class SplashActivity extends AppCompatActivity {
                 finish(); //finish loading screen activity
             }
             //call mainActivity after 1 seconds
-        }, 1000);
+        }, 2500);
 
     }
     }
