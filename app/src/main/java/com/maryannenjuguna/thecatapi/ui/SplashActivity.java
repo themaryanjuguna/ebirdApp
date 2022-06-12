@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.maryannenjuguna.thecatapi.R;
+import com.maryannenjuguna.thecatapi.ui.loginsignup.LoginActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -21,7 +22,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 //calling main activity to load after loading screen
-                startActivity(new Intent(SplashActivity.this,BreedsActivity.class));
+                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
                 finish(); //finish loading screen activity
             }
             //call mainActivity after 1 seconds
