@@ -8,6 +8,7 @@ import android.os.Handler;
 
 import com.maryannenjuguna.thecatapi.R;
 import com.maryannenjuguna.thecatapi.ui.loginsignup.LoginActivity;
+import com.maryannenjuguna.thecatapi.ui.loginsignup.RegisterActivity;
 
 public class SplashActivity extends AppCompatActivity {
 

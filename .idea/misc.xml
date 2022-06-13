@@ -8,12 +8,12 @@
         <entry key="app/src/main/res/drawable/input_bg.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_breeds.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_firetest.xml" value="0.15" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.18072916666666666" />
         <entry key="app/src/main/res/layout/activity_option_menu.xml" value="0.16197916666666667" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_rvactivity.xml" value="0.16197916666666667" />
-        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.22" />
         <entry key="app/src/main/res/layout/layout_fireitem.xml" value="0.1" />
         <entry key="app/src/main/res/layout/recycler_view_row.xml" value="0.28792569659442724" />
         <entry key="app/src/main/res/menu/option_menu.xml" value="0.22" />

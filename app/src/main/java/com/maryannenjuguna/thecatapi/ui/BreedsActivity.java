@@ -1,18 +1,23 @@
 package com.maryannenjuguna.thecatapi.ui;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.ProgressBar;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.maryannenjuguna.thecatapi.R;
-import com.maryannenjuguna.thecatapi.TheCatApiBreedsArrayAdapter;
-import com.maryannenjuguna.thecatapi.models.Image;
 import com.maryannenjuguna.thecatapi.models.TheCatBreedSearchResponse;
 import com.maryannenjuguna.thecatapi.network.theCatApi;
 import com.maryannenjuguna.thecatapi.network.theCatApiClient;
@@ -26,7 +31,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class BreedsActivity extends AppCompatActivity {
-    private static final String TAG = BreedsActivity.class.getSimpleName();
+   private static final String TAG = BreedsActivity.class.getSimpleName();
 
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.breedsTextView) TextView mBreedTextView;
@@ -39,13 +44,7 @@ public class BreedsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_breeds);
         ButterKnife.bind(this);
 
-       /* mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-            }
-        });
-*/
         theCatApi client = theCatApiClient.getClient();
         Call<List<TheCatBreedSearchResponse>> call = client.getBreeds();
 
@@ -81,6 +80,7 @@ public class BreedsActivity extends AppCompatActivity {
 
     }
 
+
     private void showFailureMessage() {
         mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
         mErrorTextView.setVisibility(View.VISIBLE);
@@ -91,12 +91,5 @@ public class BreedsActivity extends AppCompatActivity {
         mErrorTextView.setVisibility(View.VISIBLE);
     }
 
-/*    private void showRestaurants() {
-        mListView.setVisibility(View.VISIBLE);
-        mBreedTextView.setVisibility(View.VISIBLE);
-    }
 
-    private void hideProgressBar() {
-        mProgressBar.setVisibility(View.GONE);
-    }*/
 }

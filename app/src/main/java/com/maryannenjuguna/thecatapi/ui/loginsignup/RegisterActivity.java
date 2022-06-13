@@ -1,13 +1,17 @@
 package com.maryannenjuguna.thecatapi.ui.loginsignup;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
 import android.widget.TextView;
 
+
 import com.maryannenjuguna.thecatapi.R;
+
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -23,5 +27,6 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
             }
         });
+
     }
 }
