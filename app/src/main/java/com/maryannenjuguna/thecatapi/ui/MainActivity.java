@@ -1,109 +1,58 @@
 package com.maryannenjuguna.thecatapi.ui;
 
-import static android.content.ContentValues.TAG;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.Volley;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.maryannenjuguna.thecatapi.R;
+import com.maryannenjuguna.thecatapi.adapters.RecyclerViewAdapter;
+import com.maryannenjuguna.thecatapi.models.Datum;
+import com.maryannenjuguna.thecatapi.models.TheCatResponse;
+import com.maryannenjuguna.thecatapi.network.theCatApi;
+import com.maryannenjuguna.thecatapi.network.theCatApiClient;
 
-import org.json.JSONArray;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-    FloatingActionButton infoBtn,downloadBtn,likeBtn, refreshBtn;
-    Button next;
+   RecyclerView recyclerView;
+   RecyclerViewAdapter adapter;
+   RecyclerView.LayoutManager layoutManager;
+
+    List<Datum> catBreeds;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        infoBtn = findViewById(R.id.infoBtn);
-        downloadBtn = findViewById(R.id.downloadBtn);
-        likeBtn = findViewById(R.id.refreshBtn);
-        refreshBtn = findViewById(R.id.likeBtn);
 
-        //refreshButton
-        likeBtn.setOnClickListener(new View.OnClickListener() {
+        recyclerView = findViewById(R.id.viewRecycler);
+        theCatApi maryanne = theCatApiClient.getClient();
+        Call<TheCatResponse> maryannecats = maryanne.getBreeds();
+        maryannecats.enqueue(new Callback<TheCatResponse>() {
             @Override
-            public void onClick(View v) {
-                //Toast.makeText(MainActivity.this, "Refresh Button is Clicked.", Toast.LENGTH_SHORT).show();
+            public void onResponse(Call<TheCatResponse> call, Response<TheCatResponse> response) {
+                if (response.isSuccessful()){
+                    catBreeds = response.body().getData();
+                    adapter= new RecyclerViewAdapter(catBreeds, MainActivity.this);
+                    layoutManager = new LinearLayoutManager(MainActivity.this);
+                    recyclerView.setAdapter(adapter);
+                    recyclerView.setLayoutManager(layoutManager);
+                    recyclerView.setHasFixedSize(true);
+                }
+            }
 
-                //String defined in night/string.xml
-                getImage(getResources().getString(R.string.api_url));
+            @Override
+            public void onFailure(Call<TheCatResponse> call, Throwable t) {
+
             }
         });
 
-        infoBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"Info is clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        downloadBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Download Button Clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-        refreshBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Liked", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-    public void getImage(String url) {
-
-        //ExtractJsonData
-
-        RequestQueue queue = Volley.newRequestQueue(this);
-        JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-                Log.d(TAG, "onResponse: " + response.toString());
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        queue.add(arrayRequest);
-
-
-        //recyclerView = findViewById(R.id.recycleview);
-        next = findViewById(R.id.next);
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //Moves to the next activity
-                Intent intent = new Intent(MainActivity.this, BreedsActivity.class);
-                startActivity(intent);
-
-            }
-
-
-        });
     }
 }

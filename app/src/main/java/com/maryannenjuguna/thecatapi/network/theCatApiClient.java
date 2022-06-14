@@ -1,7 +1,6 @@
 package com.maryannenjuguna.thecatapi.network;
 
 import static com.maryannenjuguna.thecatapi.Constants.THECATAPI_BASE_URL;
-import static com.maryannenjuguna.thecatapi.Constants.THECATAPI_KEY;
 
 import java.io.IOException;
 
@@ -19,7 +18,7 @@ public class theCatApiClient {
     public static theCatApi getClient(){
 
         if (retrofit == null){
-            OkHttpClient okHttpClient = new OkHttpClient.Builder()
+        /*    OkHttpClient okHttpClient = new OkHttpClient.Builder()
                     .addInterceptor(new Interceptor() {
                         @Override
                         public Response intercept(Chain chain) throws IOException {
@@ -30,11 +29,11 @@ public class theCatApiClient {
 
                         }
                     })
-                    .build();
+                    .build();*/
 
             retrofit = new Retrofit.Builder()
                     .baseUrl(THECATAPI_BASE_URL)
-                    .client(okHttpClient)
+                    //.client(okHttpClient)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
