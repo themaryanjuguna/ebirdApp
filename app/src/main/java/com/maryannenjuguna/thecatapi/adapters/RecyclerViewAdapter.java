@@ -56,9 +56,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
             catImage = itemView.findViewById(R.id.imageView);
             catName = itemView.findViewById(R.id.name);
-            catDescription = itemView.findViewById(R.id.description);
-            catTemperament = itemView.findViewById(R.id.temperament);
-            catLifeSpan = itemView.findViewById(R.id.life_span);
+          //  catDescription = itemView.findViewById(R.id.description);
+            //catTemperament = itemView.findViewById(R.id.temperament);
+            //catLifeSpan = itemView.findViewById(R.id.life_span);
 
         }
 
