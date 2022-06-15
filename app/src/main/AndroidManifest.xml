@@ -40,7 +40,7 @@
             android:name=".ui.MainActivity"
             android:exported="true"
             android:parentActivityName=".ui.BreedsActivity"
-            android:theme="@style/Theme.TheCatApi2">
+            android:theme="@style/Theme.TheCatApi">
         </activity>
     </application>
 
