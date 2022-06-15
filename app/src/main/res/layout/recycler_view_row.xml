@@ -48,6 +48,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:padding="16dp"
                     android:layout_marginTop="8dp">
 
 
@@ -92,6 +93,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/temperament"
+                        android:layout_marginEnd="20dp"
                         app:layout_constraintStart_toStartOf="@+id/temperamentTV"
                         app:layout_constraintTop_toBottomOf="@+id/temperamentTV" />
 
@@ -109,7 +111,6 @@
                         android:id="@+id/life_span"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="4dp"
                         android:text="@string/life_span"
