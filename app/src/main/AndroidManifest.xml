@@ -22,7 +22,7 @@
             android:name=".ui.loginsignup.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name="com.maryannenjuguna.thecatapi.ui.SplashActivity"
+            android:name=".ui.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.TheCatApi2">
             <intent-filter>
@@ -40,12 +40,7 @@
             android:name=".ui.MainActivity"
             android:exported="true"
             android:parentActivityName=".ui.BreedsActivity"
-            android:theme="@style/Theme.TheCatApi2">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:theme="@style/Theme.TheCatApi">
         </activity>
     </application>
 
