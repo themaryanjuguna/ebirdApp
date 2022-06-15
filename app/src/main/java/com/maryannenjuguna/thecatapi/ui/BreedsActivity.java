@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ import com.maryannenjuguna.thecatapi.R;
 import com.maryannenjuguna.thecatapi.models.TheCatBreedSearchResponse;
 import com.maryannenjuguna.thecatapi.network.theCatApi;
 import com.maryannenjuguna.thecatapi.network.theCatApiClient;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -61,11 +63,19 @@ public class BreedsActivity extends AppCompatActivity {
 
                 for(TheCatBreedSearchResponse theCatBreedSearchResponse : theCatBreedSearchResponses){
                     String content = "";
-                    content += theCatBreedSearchResponse.getClass().getResource("url") + "\n";
+                    content += theCatBreedSearchResponse.getReferenceImageId() + "\n";
+                    content += "https://cdn2.thecatapi.com/images/" + theCatBreedSearchResponse.getReferenceImageId() +".jpg" + "\n";
                     content += "Name: " + theCatBreedSearchResponse.getName() + "\n";
                     content += "Life Span: " + theCatBreedSearchResponse.getLifeSpan() + "\n";
                     content += "Temperament: " + theCatBreedSearchResponse.getTemperament() + "\n";
                     content += "Description: " + theCatBreedSearchResponse.getDescription() + "\n\n";
+
+
+                    String imageUrl= "https://cdn2.thecatapi.com/images/";
+                    String refId = theCatBreedSearchResponse.getReferenceImageId();
+                    String catImage = imageUrl+refId+".jpg";
+                    ImageView imageView = (ImageView) findViewById(R.id.imageView);
+                    Picasso.get().load(catImage).into(imageView);
 
                     mBreedTextView.append(content);
 
