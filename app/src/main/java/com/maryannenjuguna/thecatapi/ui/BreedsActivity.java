@@ -1,8 +1,105 @@
 package com.maryannenjuguna.thecatapi.ui;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.maryannenjuguna.thecatapi.R;
+import com.maryannenjuguna.thecatapi.models.TheCatBreedSearchResponse;
+import com.maryannenjuguna.thecatapi.network.theCatApi;
+import com.maryannenjuguna.thecatapi.network.theCatApiClient;
+import com.squareup.picasso.Picasso;
+
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class BreedsActivity extends AppCompatActivity {
+   private static final String TAG = BreedsActivity.class.getSimpleName();
+
+    @BindView(R.id.errorTextView) TextView mErrorTextView;
+    @BindView(R.id.breedsTextView) TextView mBreedTextView;
+    //@BindView(R.id.progressBar) ProgressBar mProgressBar;
+   /* @BindView(R.id.listView) ListView mListView;*/
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_breeds);
+        ButterKnife.bind(this);
+
+
+        theCatApi client = theCatApiClient.getClient();
+        Call<List<TheCatBreedSearchResponse>> call = client.getBreeds();
+
+        call.enqueue(new Callback<List<TheCatBreedSearchResponse>>() {
+            @Override
+            public void onResponse(Call<List<TheCatBreedSearchResponse>> call, Response<List<TheCatBreedSearchResponse>> response) {
+
+                if(!response.isSuccessful()){
+                    mErrorTextView.setText("Code: " + response.code());
+                    return;
+                }
+
+                List<TheCatBreedSearchResponse> theCatBreedSearchResponses = response.body();
+
+                for(TheCatBreedSearchResponse theCatBreedSearchResponse : theCatBreedSearchResponses){
+                    String content = "";
+                    content += theCatBreedSearchResponse.getReferenceImageId() + "\n";
+                    content += "https://cdn2.thecatapi.com/images/" + theCatBreedSearchResponse.getReferenceImageId() +".jpg" + "\n";
+                    content += "Name: " + theCatBreedSearchResponse.getName() + "\n";
+                    content += "Life Span: " + theCatBreedSearchResponse.getLifeSpan() + "\n";
+                    content += "Temperament: " + theCatBreedSearchResponse.getTemperament() + "\n";
+                    content += "Description: " + theCatBreedSearchResponse.getDescription() + "\n\n";
+
+
+                    String imageUrl= "https://cdn2.thecatapi.com/images/";
+                    String refId = theCatBreedSearchResponse.getReferenceImageId();
+                    String catImage = imageUrl+refId+".jpg";
+                    ImageView imageView = (ImageView) findViewById(R.id.imageView);
+                    Picasso.get().load(catImage).into(imageView);
+
+                    mBreedTextView.append(content);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<TheCatBreedSearchResponse>> call, Throwable t) {
+                mErrorTextView.setText(t.getMessage());
+            }
+        });
+
+    }
+
+
+    private void showFailureMessage() {
+        mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
+        mErrorTextView.setVisibility(View.VISIBLE);
+    }
+
+    private void showUnsuccessfulMessage() {
+        mErrorTextView.setText("Something went wrong. Please try again later");
+        mErrorTextView.setVisibility(View.VISIBLE);
+    }
 
 
 }
