@@ -20,7 +20,8 @@
             android:exported="false" />
         <activity
             android:name=".ui.loginsignup.RegisterActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.TheCatApi2"/>
         <activity
             android:name=".ui.SplashActivity"
             android:exported="true"
