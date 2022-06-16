@@ -22,11 +22,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.maryannenjuguna.thecatapi.R;
-import com.maryannenjuguna.thecatapi.ui.BreedsActivity;
 import com.maryannenjuguna.thecatapi.ui.MainActivity;
 
-import java.util.Arrays;
-import java.util.List;
 
 
 public class RegisterActivity extends AppCompatActivity {
@@ -60,13 +57,14 @@ public class RegisterActivity extends AppCompatActivity {
         loginTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
             }
         });
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 PerformAuth();
             }
         });
@@ -114,8 +112,8 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void sendUserToNextActivity() {
 
-        Intent intent=new Intent(RegisterActivity.this, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        Intent intent=new Intent(RegisterActivity.this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
 }
