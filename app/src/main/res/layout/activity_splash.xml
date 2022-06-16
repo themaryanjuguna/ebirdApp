@@ -27,7 +27,7 @@
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="FELIDZ"
+        android:text="FERAL"
         android:textAlignment="center"
         android:textSize="48sp"
         android:textStyle="bold"
@@ -37,5 +37,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/poweredBy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="POWERED BY thecatapi.com"
+        android:textAlignment="center"
+        android:textSize="16dp"
+        android:textColor="@color/Red"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:layout_constraintVertical_bias="0.74" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

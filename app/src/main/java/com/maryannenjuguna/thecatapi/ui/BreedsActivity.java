@@ -33,12 +33,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class BreedsActivity extends AppCompatActivity {
-   private static final String TAG = BreedsActivity.class.getSimpleName();
+    private static final String TAG = BreedsActivity.class.getSimpleName();
 
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.breedsTextView) TextView mBreedTextView;
     //@BindView(R.id.progressBar) ProgressBar mProgressBar;
-   /* @BindView(R.id.listView) ListView mListView;*/
+    /* @BindView(R.id.listView) ListView mListView;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

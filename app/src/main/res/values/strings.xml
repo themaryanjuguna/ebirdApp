@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">Felidae</string>
+    <string name="app_name">FERAL</string>
     <string name="description">description</string>
     <string name="name">name</string>
     <string name="temperament">temperament</string>
     <string name="life_span">life_span</string>
     <string name="Breeds">Breeds</string>
-    <string name="AppName">Felidz</string>
+    <string name="AppName">FERAL</string>
 </resources>
