@@ -23,7 +23,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 //calling main activity to load after loading screen
-                startActivity(new Intent(SplashActivity.this, RegisterActivity.class));
+                startActivity(new Intent(SplashActivity.this, MainActivity.class));
                 finish(); //finish loading screen activity
             }
             //call mainActivity after 1 seconds
