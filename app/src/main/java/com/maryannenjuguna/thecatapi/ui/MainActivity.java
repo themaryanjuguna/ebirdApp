@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
 
     DatabaseReference favouriteref;
     FirebaseDatabase database=FirebaseDatabase.getInstance();
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     List<TheCatBreedSearchResponse> catBreeds;
 
@@ -58,8 +60,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                //display welcome message
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    getSupportActionBar().setTitle("Welcome, " + user.getDisplayName() + "!");
+                } else {
+
+                }
+            }
+        };
+
+
         recyclerView = findViewById(R.id.viewRecycler);
         theCatApi feral = theCatApiClient.getClient();
+
         Call<List<TheCatBreedSearchResponse>> catFamily = feral.getBreeds();
         catFamily.enqueue(new Callback<List<TheCatBreedSearchResponse>>() {
 
@@ -81,6 +99,20 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
     }
 
     @Override
