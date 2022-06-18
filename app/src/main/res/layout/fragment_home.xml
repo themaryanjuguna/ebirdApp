@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.HomeFragment">
+
+    <ImageView
+        android:id="@+id/myImg"
+        android:layout_width="241dp"
+        android:layout_height="182dp"
+        android:layout_centerInParent="true"
+        android:foreground="@drawable/kitty" />
+
+
+    <LinearLayout
+        android:layout_width="281dp"
+        android:layout_height="68dp"
+        android:layout_below="@+id/myImg"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="83dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="180dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/likeKittyBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#F44336"
+            android:drawableLeft="@drawable/ic_like"
+            android:text="Like"
+            android:textSize="12sp"
+            app:iconTint="@color/white" />
+
+
+        <Button
+            android:id="@+id/myInfoBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#E91E63"
+            android:drawableLeft="@drawable/ic_info"
+            android:text="More info"
+            android:textSize="12sp" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

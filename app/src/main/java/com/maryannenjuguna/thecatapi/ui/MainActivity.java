@@ -8,10 +8,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +24,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.maryannenjuguna.thecatapi.R;
 import com.maryannenjuguna.thecatapi.adapters.RecyclerViewAdapter;
 import com.maryannenjuguna.thecatapi.models.TheCatBreedSearchResponse;
@@ -39,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerViewAdapter adapter;
     RecyclerView.LayoutManager layoutManager;
+    ImageButton likeImgBtn;
+
+    DatabaseReference favouriteref;
+    FirebaseDatabase database=FirebaseDatabase.getInstance();
 
     List<TheCatBreedSearchResponse> catBreeds;
 
@@ -71,6 +81,32 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            logout();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void logout() {
+        FirebaseAuth.getInstance().signOut();
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 
 }
