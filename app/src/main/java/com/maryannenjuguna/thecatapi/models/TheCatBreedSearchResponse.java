@@ -121,6 +121,9 @@ public class TheCatBreedSearchResponse {
     @Expose
     private Image image;
 
+    private String pushId;
+
+
     /**
      * No args constructor for use in serialization
      * 
@@ -513,6 +516,15 @@ public class TheCatBreedSearchResponse {
 
     public void setImage(Image image) {
         this.image = image;
+    }
+
+
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 
 }

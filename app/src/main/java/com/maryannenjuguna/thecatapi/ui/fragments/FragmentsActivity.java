@@ -1,4 +1,4 @@
-package com.maryannenjuguna.thecatapi.ui;
+package com.maryannenjuguna.thecatapi.ui.fragments;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

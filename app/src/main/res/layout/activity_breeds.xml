@@ -31,7 +31,7 @@
 
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/kittyName"
         android:layout_width="172dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -42,7 +42,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/KittyId"
+        android:id="@+id/kittyId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
@@ -68,12 +68,21 @@
         android:visibility="gone" />
 
     <TextView
-        android:id="@+id/breTextView"
+        android:id="@+id/breedTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_margin="16dp"
         android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/wikipedia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Wikipedia"
+        android:textAlignment="center"
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/likeKittyBtn"

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -46,7 +47,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.catData(cats.get(position));
 
 
-       /* holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+       holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, BreedsActivity.class);
@@ -54,13 +55,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 {
                     try {
                         Bundle bundle = new Bundle();
+
                         bundle.putString("id", cats.get(position).getId());
                         bundle.putString("name", cats.get(position).getName());
                         bundle.putString("description", cats.get(position).getDescription());
                         bundle.putString("image", cats.get(position).getImage().getUrl());
                         bundle.putString("wikipedia", cats.get(position).getWikipediaUrl());
 
-                        Picasso.get().load(cats.get(position).getImage().getUrl()).into(holder.myImageView);
+                        Picasso.get().load(cats.get(position).getImage().getUrl()).into(holder.kittyImageView);
 
                         intent.putExtras(bundle);
                         context.startActivity(intent);
@@ -71,7 +73,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     }
                 }
             }
-        });*/
+        });
 
 
     }
@@ -85,8 +87,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         LinearLayout linearLayout;
         Button myLikeBtn;
-        ImageView catImage, myImageView;
-        TextView catName, catDescription, catTemperament, catLifeSpan, kittyId, kittyName, kittyDescription;
+        ImageView catImage, kittyImageView;
+        TextView catName, catDescription, catTemperament, catLifeSpan, kittyId, kittyName, kittyDescription, kittyWikipedia;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -107,8 +109,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             catTemperament.setText(maryanne.getTemperament());
             catLifeSpan.setText(maryanne.getLifeSpan());
             Picasso.get().load(maryanne.getImage().getUrl()).into(catImage);
-
-
 
 
         }
