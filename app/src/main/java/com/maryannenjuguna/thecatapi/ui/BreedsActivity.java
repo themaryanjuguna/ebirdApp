@@ -50,7 +50,9 @@ public class BreedsActivity extends AppCompatActivity {
                     TextView kittyWikipedia = findViewById(R.id.wikipedia);
                     Button myLikeBtn = findViewById(R.id.likeKittyBtn);
 
+
                     Bundle bundle = getIntent().getExtras();
+
 
                     String id = bundle.getString("id");
                     String mDescription = bundle.getString("description");
