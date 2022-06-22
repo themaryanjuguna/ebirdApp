@@ -58,9 +58,9 @@ public class RVActivity extends AppCompatActivity {
                     int lastVisible = linearLayoutManager.findLastCompletelyVisibleItemPosition();
                     if(totalItem<lastVisible+3){
                         isLoading=true;
-                        loadData();;
+                        loadData();
                     }
-                };
+                }
             }
         });
     }
